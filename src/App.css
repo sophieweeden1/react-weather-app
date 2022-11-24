@@ -1,0 +1,95 @@
+.card {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  border: none;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Urbanist", sans-serif;
+}
+
+/* need to make bottom row of days responsive
+ */
+.search {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1;
+}
+
+.searchbar {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: #fff;
+  border-radius: 50px;
+  width: 80%;
+}
+
+button {
+  border: #fff;
+  background: #fff;
+  padding: 15px 10px;
+  margin: 0 auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
+.description {
+  padding-top: 15px;
+  text-transform: capitalize;
+}
+
+.humidity {
+  margin-top: 30px;
+}
+.main-date {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.main-weather {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1;
+}
+
+#main-weather-icon {
+  width: 100px;
+  height: auto;
+}
+
+.temp {
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.min-temp {
+  color: #fff;
+}
+
+.weather-icon {
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.forecast-column {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.github {
+  display: block;
+  text-align: center;
+}
