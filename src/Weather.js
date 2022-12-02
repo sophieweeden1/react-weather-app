@@ -49,7 +49,7 @@ export default function Weather() {
                 <input
                   type="text"
                   placeholder="Enter a city here"
-                  class="searchbar"
+                  className="searchbar"
                   id="userinput"
                   autoFocus={true}
                   onChange={updateCity}
@@ -59,10 +59,10 @@ export default function Weather() {
                 </button>
                 <button
                   type="button"
-                  class="btn btn-light"
+                  className="btn btn-light"
                   id="location-button"
                 >
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i className="fas fa-map-marker-alt"></i>
                   Current Location
                 </button>
               </form>
