@@ -16,11 +16,12 @@ export default function WeatherSearch() {
     setWeather({
       
       cityName: response.data.city,
-      temperature: response.data.temperature,
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
-      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.icon}@2x.png`,
-      description: response.data.condition.description
+      //icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.icon}@2x.png`,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url
     });
   }
 
@@ -36,10 +37,9 @@ export default function WeatherSearch() {
   }
 
   let form = (<div>
-     <div className="container-fluid">
+     <div className="container-sm">
         <div
           className="card bg-primary mb-3 border-light mb-3"
-          stylename="width: 60%"
         >
           <div className="card-body">
             <div className="search">
@@ -78,7 +78,14 @@ export default function WeatherSearch() {
 
   if (loaded) {
       return ( <div>{form}
-      <h3 className="main-date">Sunday</h3>
+      <div className="container-sm">
+      <div
+          className="card bg-primary mb-3 border-light mb-3"
+          
+          
+        >
+          <div className="card-body">
+      <h3 className="main-date"></h3>
       <div className="main-weather">
               <img src={weather.icon} alt={weather.description} id="main-weather-icon" />
               <h2 className="card-title" id="city">
@@ -89,7 +96,7 @@ export default function WeatherSearch() {
               </h1>
 
               <button className="btn btn-light" id="celcius-button">
-                
+              C
               </button>
               <button className="btn btn-light" id="fahrenheit-button">
                 F
@@ -97,17 +104,16 @@ export default function WeatherSearch() {
               <br />
               <h4 className="description">{weather.description}</h4>
 
-              <h5 className="humidity">Humidity:{weather.humidity}%</h5>
-              <h5 className="wind">Wind:{weather.wind}km/h</h5>
+              <h5 className="humidity">Humidity: {weather.humidity}%</h5>
+              <h5 className="wind">Wind: {weather.wind}km/h</h5>
             </div>
             <br />
+            </div>
+            </div>
 
-            <div className="row weekdays" id="forecast"></div>
-        <ul>
-        <li>
-          <img src={weather.icon} alt={weather.description} />
-        </li>
-      </ul>
+            
+      
+      </div>
       </div>)
     } else { return form}
   }
