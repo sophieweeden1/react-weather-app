@@ -59,12 +59,7 @@ export default function Weather() {
             <div className="row weekdays" id="forecast"></div>
           </div>
         </div>
-        <a
-          className="github"
-          href="https://github.com/sophieweeden1/react-weather-app"
-        >
-          View on GitHub
-        </a>
+       
       </div>
     </div>
   );
