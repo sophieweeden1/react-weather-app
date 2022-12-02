@@ -14,16 +14,16 @@ export default function Weather() {
   function displayForecast(response) {
     setLoaded(true);
     console.log(response.data);
-//need to edit these to align with SheCodes API
+
     setWeather(
       console.log(response.data),{
       
       cityName: response.data.city,
-      temperature: response.data.main.temp,
+      temperature: response.data.temperature,
       wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      icon: `http://openweathermap.org/img/wn/${response.data.daily.icon}@2x.png`,
-      description: response.data.weather[0].description
+      humidity: response.data.temperature.humidity,
+      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.icon}@2x.png`,
+      description: response.data.condition.description
     });
   }
 
