@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Weather() {
+export default function WeatherSearch() {
   //states
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
 
-  //API info
   const apiKey = "76d5aa4bc090a4b344dot82abbcf6f0b";
-  const apiUrl = "https://api.shecodes.io/weather/v1/current?query={city}&key={apiKey}&units=metric"
-
+  
   function displayForecast(response) {
     setLoaded(true);
     console.log(response.data);
 
-    setWeather(
-      console.log(response.data),{
+    setWeather({
       
       cityName: response.data.city,
       temperature: response.data.temperature,
@@ -29,6 +26,7 @@ export default function Weather() {
 
   function searchCity(event) {
     event.preventDefault();
+   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
     axios.get(apiUrl).then(displayForecast);
    
   }
@@ -45,7 +43,7 @@ export default function Weather() {
         >
           <div className="card-body">
             <div className="search">
-              <form>
+              <form onSubmit={searchCity}>
                 <input
                   type="text"
                   placeholder="Enter a city here"
@@ -53,8 +51,9 @@ export default function Weather() {
                   id="userinput"
                   autoFocus={true}
                   onChange={updateCity}
+                  
                 />
-                <button type="submit" class="btn btn-light" id="submit-button" value="search">
+                <button type="submit" className="btn btn-light" id="submit-button" value="search">
                   Submit
                 </button>
                 <button
@@ -62,7 +61,6 @@ export default function Weather() {
                   className="btn btn-light"
                   id="location-button"
                 >
-                  <i className="fas fa-map-marker-alt"></i>
                   Current Location
                 </button>
               </form>
@@ -111,5 +109,5 @@ export default function Weather() {
         </li>
       </ul>
       </div>)
-    } else { return form;}
+    } else { return form}
   }

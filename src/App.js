@@ -1,10 +1,10 @@
 import "./App.css";
-import Weather from "./Weather";
+import WeatherSearch from "./Weather";
 
 export default function App() {
   return (
     <div className="App">
-      <Weather />
+      <WeatherSearch />
       <footer>
       <a
           className="github"
