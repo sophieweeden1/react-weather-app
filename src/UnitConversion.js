@@ -13,18 +13,19 @@ export default function UnitConversion(props){
         setUnit("celsius")
     }
 
-    if (unit === "celsius") { return 
-        (<div>
+    if (unit === "celsius") { 
+        return (<div>
         <h1 className="temp" id="actual-temp">
               {Math.round(props.celsius)}°C
               </h1>
         <button className="btn btn-light" id="celsius-button">
     C
     </button>
-    <button className="btn btn-light" id="fahrenheit-button" onClick={showFahrenheit}>
+    <button className="btn btn-light" id="fahrenheit-button" onClick={showFahrenheit} >
       F
     </button>
-    </div>)} 
+    </div>)
+} 
     else {
         let fahrenheit = (props.celsius * 9/5) + 32
         return (<div>
