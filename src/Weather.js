@@ -4,7 +4,6 @@ import UnitConversion from "./UnitConversion";
 import axios from "axios";
 
 export default function WeatherSearch() {
-  //states
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
@@ -21,7 +20,6 @@ export default function WeatherSearch() {
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
-      //icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.icon}@2x.png`,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
       date: new Date(response.data.time * 1000)
@@ -94,12 +92,7 @@ export default function WeatherSearch() {
               <h2 className="card-title" id="city">
               {weather.cityName}
               </h2>
-              <h1 className="temp" id="actual-temp">
-              {Math.round(weather.temperature)}°C
-              </h1>
               <UnitConversion celsius={weather.temperature} />
-
-              
               <br />
               <h4 className="description">{weather.description}</h4>
 
