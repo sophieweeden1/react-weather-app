@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 
 export default function WeatherSearch() {
@@ -21,7 +22,8 @@ export default function WeatherSearch() {
       humidity: response.data.temperature.humidity,
       //icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.icon}@2x.png`,
       description: response.data.condition.description,
-      icon: response.data.condition.icon_url
+      icon: response.data.condition.icon_url,
+      date: new Date(response.data.time * 1000)
     });
   }
 
@@ -85,7 +87,7 @@ export default function WeatherSearch() {
           
         >
           <div className="card-body">
-      <h3 className="main-date"></h3>
+      <FormattedDate date={weather.date}/>
       <div className="main-weather">
               <img src={weather.icon} alt={weather.description} id="main-weather-icon" />
               <h2 className="card-title" id="city">
