@@ -11,8 +11,12 @@ export default function UnitConversion(props){
         
     }
 
+    function revertToC(event){
+        setUnit("celsius")
+    }
+
     return (<div>
-        <button className="btn btn-light" id="celsius-button">
+        <button className="btn btn-light" id="celsius-button" onClick={revertToC}>
     C
     </button>
     <button className="btn btn-light" id="fahrenheit-button" onClick={convertToF}>
