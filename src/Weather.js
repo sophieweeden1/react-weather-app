@@ -97,7 +97,7 @@ export default function WeatherSearch() {
               <h1 className="temp" id="actual-temp">
               {Math.round(weather.temperature)}°C
               </h1>
-              <UnitConversion />
+              <UnitConversion celsius={weather.temperature} />
 
               
               <br />
