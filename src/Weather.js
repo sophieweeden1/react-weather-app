@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
+import UnitConversion from "./UnitConversion";
 import axios from "axios";
 
 export default function WeatherSearch() {
@@ -96,13 +97,9 @@ export default function WeatherSearch() {
               <h1 className="temp" id="actual-temp">
               {Math.round(weather.temperature)}°C
               </h1>
+              <UnitConversion />
 
-              <button className="btn btn-light" id="celcius-button">
-              C
-              </button>
-              <button className="btn btn-light" id="fahrenheit-button">
-                F
-              </button>
+              
               <br />
               <h4 className="description">{weather.description}</h4>
 
