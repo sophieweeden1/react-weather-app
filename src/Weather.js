@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import UnitConversion from "./UnitConversion";
+import WeatherForecast from "./WeatherForecast"
 import axios from "axios";
 
 export default function WeatherSearch() {
@@ -78,7 +79,8 @@ export default function WeatherSearch() {
   )
 
   if (loaded) {
-      return ( <div>{form}
+      return ( <div>
+        {form}
       <div className="container-sm">
       <div
           className="card bg-primary mb-3 border-light mb-3"
@@ -100,6 +102,7 @@ export default function WeatherSearch() {
               <h5 className="wind">Wind: {weather.wind}km/h</h5>
             </div>
             <br />
+            <WeatherForecast />
             </div>
             </div>
 
