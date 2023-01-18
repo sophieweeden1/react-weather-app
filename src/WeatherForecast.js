@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 export default function WeatherForecast(){
     return (<div class="row weekdays" id="forecast">
      <div class="col-sm forecast-column">
