@@ -19,10 +19,14 @@ export default function WeatherForecast(props){
 
   if (loaded){
     return(<div className="row weekdays" id="forecast">
-    <div className="col-sm forecast-column">
-      <WeatherForecastDay data={forecast[0]}/>
     
-   </div>
+      <WeatherForecastDay data={forecast[1]}/>
+      <WeatherForecastDay data={forecast[2]}/>
+      <WeatherForecastDay data={forecast[3]}/>
+      <WeatherForecastDay data={forecast[4]}/>
+      <WeatherForecastDay data={forecast[5]}/>
+    
+   
  </div>)
   } else {
     
