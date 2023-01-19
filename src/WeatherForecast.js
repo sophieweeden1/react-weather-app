@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Weather from "./Weather"
 
 
 
@@ -10,7 +11,7 @@ export default function WeatherForecast(props){
   
 
   function handleResponse(response){
-    console.log(response.data)
+    console.log(response.data.daily)
     setForecast(response.data.daily)
     setLoaded(true)
   }
@@ -21,12 +22,12 @@ export default function WeatherForecast(props){
     <div className="col-sm forecast-column">
      <i className="fas fa-cloud-sun weather-icon"></i>
      <p>Tues</p>
-     <span className="max-temp">18°</span> <span className="min-temp">7°</span>
+     <span className="max-temp">{Math.round(forecast[0].temperature.maximum)}°</span> <span className="min-temp">{Math.round(forecast[0].temperature.minimum)}°</span>
    </div>
  </div>)
   } else {
     
-    let key = "bc090a4b344dot82abbcf6f0b"
+    let key = "76d5aa4bc090a4b344dot82abbcf6f0b"
     let city = props.cityName
     let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
     
