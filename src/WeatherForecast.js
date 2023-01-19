@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Weather from "./Weather"
+import WeatherForecastDay from "./WeatherForecastDay"
 
 
 
@@ -20,9 +20,8 @@ export default function WeatherForecast(props){
   if (loaded){
     return(<div className="row weekdays" id="forecast">
     <div className="col-sm forecast-column">
-     <i className="fas fa-cloud-sun weather-icon"></i>
-     <p>Tues</p>
-     <span className="max-temp">{Math.round(forecast[0].temperature.maximum)}°</span> <span className="min-temp">{Math.round(forecast[0].temperature.minimum)}°</span>
+      <WeatherForecastDay data={forecast[0]}/>
+    
    </div>
  </div>)
   } else {
