@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 
 
-export default function WeatherForecast(){
+export default function WeatherForecast(props){
   let [loaded, setLoaded]=useState(false)
   let [forecast,setForecast]=useState(null)
 
@@ -27,7 +27,7 @@ export default function WeatherForecast(){
   } else {
     
     let key = "bc090a4b344dot82abbcf6f0b"
-    let city = "London"
+    let city = props.cityName
     let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
     
   

@@ -13,7 +13,6 @@ export default function WeatherSearch() {
   
   function displayForecast(response) {
     setLoaded(true);
-    console.log(response.data);
 
     setWeather({
       
@@ -102,7 +101,7 @@ export default function WeatherSearch() {
               <h5 className="wind">Wind: {weather.wind}km/h</h5>
             </div>
             <br />
-            <WeatherForecast />
+            <WeatherForecast cityName={weather.cityName}/>
             </div>
             </div>
 
