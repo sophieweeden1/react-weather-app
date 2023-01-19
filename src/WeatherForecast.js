@@ -1,38 +1,39 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 
 
 export default function WeatherForecast(){
-    return (<div class="row weekdays" id="forecast">
-     <div class="col-sm forecast-column">
-      <i class="fas fa-cloud-sun weather-icon"></i>
-      <p>Tues</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-    <div class="col-sm forecast-column">
-      <i class="fas fa-cloud-sun-rain weather-icon"></i>
-      <p>Weds</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-    <div class="col-sm forecast-column">
-      <i class="fas fa-cloud-sun-rain weather-icon"></i>
-      <p>Thurs</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-    <div class="col-sm forecast-column">
-      <i class="fas fa-cloud-sun weather-icon"></i>
-      <p>Fri</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-    <div class="col-sm forecast-column">
-      <i class="fas fa-sun weather-icon"></i>
-      <p>Sat</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-    <div class="col-sm forecast-column">
-      <i class="fas fa-sun weather-icon"></i>
-      <p>Sun</p>
-      <span class="max-temp">18°</span> <span class="min-temp">7°</span>
-    </div>
-  </div>)
+  let [loaded, setLoaded]=useState(false)
+  let [forecast,setForecast]=useState(null)
+
+  
+
+  function handleResponse(response){
+    console.log(response.data)
+    setForecast(response.data.daily)
+    setLoaded(true)
+  }
+  
+
+  if (loaded){
+    return(<div className="row weekdays" id="forecast">
+    <div className="col-sm forecast-column">
+     <i className="fas fa-cloud-sun weather-icon"></i>
+     <p>Tues</p>
+     <span className="max-temp">18°</span> <span className="min-temp">7°</span>
+   </div>
+ </div>)
+  } else {
+    
+    let key = "bc090a4b344dot82abbcf6f0b"
+    let city = "London"
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
+    
+  
+    axios.get(apiUrl).then(handleResponse);
+    
+      return null;
+  }
+  
 }
