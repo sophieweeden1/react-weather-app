@@ -57,13 +57,6 @@ export default function WeatherSearch() {
                 <button type="submit" className="btn btn-light" id="submit-button" value="search">
                   Submit
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-light"
-                  id="location-button"
-                >
-                  Current Location
-                </button>
               </form>
             </div>
           </div>
