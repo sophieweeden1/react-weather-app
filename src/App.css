@@ -91,3 +91,7 @@ button {
   display: block;
   text-align: center;
 }
+
+.forecast-cols{
+  text-align:center;
+}
